@@ -74,8 +74,6 @@ h1 {
   margin-bottom: 30px;
 }
 
-
-
 .sudoku-cell {
   width: 55px;
   height: 55px;
@@ -244,5 +242,26 @@ h1 {
 }
 
 .solve-button:active {
+  transform: translateY(0);
+}
+.hint-button {
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+  margin-top: 10px;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.hint-button:hover {
+  background-color: #2b2db06c;
+  transform: translateY(-2px);
+}
+
+.hint-button:active {
   transform: translateY(0);
 }

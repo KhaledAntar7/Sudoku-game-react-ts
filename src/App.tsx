@@ -72,11 +72,6 @@ const App = () => {
     setInitialCells(newInitialCells);
     setConflicts(emptyBooleanBoard.map((row) => [...row]));
     setGameStatus(`New ${difficulty} puzzle generated`);
-
-    // Clear status message after 3 seconds
-    setTimeout(() => {
-      setGameStatus("");
-    }, 3000);
   };
 
   const handleSolve = () => {
@@ -172,7 +167,7 @@ const App = () => {
           Get a Hint
         </button>
 
-        {gameStatus && <div className="game-status">{gameStatus}</div>}
+        {gameStatus ? <div className="game-status">{gameStatus}</div> : null}
       </div>
     </div>
   );
