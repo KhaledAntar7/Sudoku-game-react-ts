@@ -1,0 +1,225 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/* sudoku.css */
+
+/* General styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #fff;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Sudoku board */
+.sudoku-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1px;
+  background-color: #4a5568;
+  border: 3px solid #2d3748;
+  padding: 3px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.sudoku-cell {
+  width: 55px;
+  height: 55px;
+  font-size: 28px;
+  text-align: center;
+  background-color: #f8fafc;
+  color: #1a202c;
+  border: 1px solid #cbd5e0;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.sudoku-cell:focus {
+  outline: none;
+  background-color: #ebf8ff;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}
+
+.sudoku-cell.conflict {
+  background-color: #fed7d7;
+}
+
+/* Thick borders for 3x3 regions */
+.thick-right {
+  border-right: 3px solid #2d3748;
+}
+
+.thick-bottom {
+  border-bottom: 3px solid #2d3748;
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.check-button {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.check-button:hover {
+  background-color: #2b6cb0;
+  transform: translateY(-2px);
+}
+
+.check-button:active {
+  transform: translateY(0);
+}
+
+.difficulty-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.difficulty-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.difficulty-button:hover {
+  transform: translateY(-2px);
+}
+
+.difficulty-button:active {
+  transform: translateY(0);
+}
+
+.easy {
+  background-color: #48bb78;
+  color: white;
+}
+
+.easy:hover {
+  background-color: #38a169;
+}
+
+.medium {
+  background-color: #ecc94b;
+  color: #1a202c;
+}
+
+.medium:hover {
+  background-color: #d69e2e;
+}
+
+.hard {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.hard:hover {
+  background-color: #c53030;
+}
+
+/* Game status */
+.game-status {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .sudoku-cell {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .difficulty-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .difficulty-button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
