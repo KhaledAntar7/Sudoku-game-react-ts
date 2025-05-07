@@ -91,6 +91,8 @@ export const generatePuzzle = (difficulty: 'easy' | 'medium' | 'hard'): Board =>
       cellsToRemove--;
     }
   }
+  
+  
 
   return puzzle;
 };

@@ -4,12 +4,14 @@ import "../styles/sudoku.css";
 interface SudokuBoardProps {
   board: number[][];
   conflicts: boolean[][];
+  initialCells: boolean[][];
   onChange: (row: number, col: number, value: number | "") => void;
 }
 
 export const SudokuBoard: React.FC<SudokuBoardProps> = ({
   board,
   conflicts,
+  initialCells,
   onChange,
 }) => {
   return (
@@ -19,6 +21,7 @@ export const SudokuBoard: React.FC<SudokuBoardProps> = ({
           const isConflict = conflicts[rowIndex][colIndex];
           const isThickRight = (colIndex + 1) % 3 === 0 && colIndex !== 8;
           const isThickBottom = (rowIndex + 1) % 3 === 0 && rowIndex !== 8;
+          const isInitialCell = initialCells[rowIndex][colIndex];
 
           return (
             <input
@@ -31,16 +34,20 @@ export const SudokuBoard: React.FC<SudokuBoardProps> = ({
                 ${isConflict ? "conflict" : ""}
                 ${isThickRight ? "thick-right" : ""}
                 ${isThickBottom ? "thick-bottom" : ""}
+                ${isInitialCell ? "initial-cell" : ""}
               `}
               value={cell === 0 ? "" : cell}
               onChange={(e) => {
                 const val = e.target.value;
-                if (val === "") {
-                  onChange(rowIndex, colIndex, "");
-                } else if (/^[1-9]$/.test(val)) {
-                  onChange(rowIndex, colIndex, parseInt(val));
+                if (!isInitialCell) {
+                  if (val === "") {
+                    onChange(rowIndex, colIndex, "");
+                  } else if (/^[1-9]$/.test(val)) {
+                    onChange(rowIndex, colIndex, parseInt(val));
+                  }
                 }
               }}
+              disabled={isInitialCell}
             />
           );
         })
